@@ -1,0 +1,74 @@
+<div id="home" class="container">
+     
+    <h2>Welcome to the Home page!</h2>
+    <div class="container">
+         <div class="row">
+            <div class="col-xs-6">
+                <input type="text"  class="form-control" id="postBox" placeholder="Post a tweet"  ng-model="tweet"/>
+                 <br>
+                 <button ng-click="postTweet()" id="tweetButton" type="button" class="btn btn-primary" ng-disabled="tweet.length==0" >Tweet</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-6">
+                <button ng-click="connectButton()" id="connectButton" type="button" class="btn btn-primary">Connect Twitter</button>
+                <br>
+                <br>
+                <button ng-click="signOut()" id="signOut" type="button" class="btn btn-danger">Sign Out</button>
+            </div>
+        </div>
+    </div>
+  
+</div>
+
+<div class="container">
+<label style="color:red">{{message}}</label> 
+<uib-tabset>
+    <uib-tab heading="Timeline">    
+             <div class="container">
+             <button ng-click="reloadTable()" id="reloadButton" type="button" class="btn btn-primary">Reload</button>
+            
+             <table ng-table="tweetsTable" class="table table-striped" show-filter="false">
+                           <tr ng-repeat="tweet in $data">
+             
+                               <td data-title="'User Profile Picture'" filter="" class="col-md-2">
+                                  <img ng-src="{{tweet.user.profile_image_url}}" class="img-circle">
+                               </td>
+                               <td data-title="'Tweet Created At'" filter="" class="col-md-2">
+                                   {{tweet.created_at}}
+                               </td>
+                               <td data-title="'Tweet'" filter="" class="col-md-2">
+                                   {{tweet.text}}
+                               </td>
+                           </tr>
+              </table>
+              </div>
+     </uib-tab>
+  
+     <uib-tab heading="Profile"> 
+        <div class="container">
+        <table class="table">
+        <tbody>
+        <tr>
+            <img ng-src="{{user.profile_image_url}}" class="img-circle">
+        </tr>
+        <tr>
+            <td>Account Created At</td>
+            <td>{{user.created_at}}</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>{{user.name}}</td>
+        </tr>
+        <tr>
+            <td>Screen Name</td>
+            <td>{{user.screen_name}}</td>
+        </tr>
+        </tbody>
+        </table>
+        <button ng-click="getUser()" type="button" class="btn btn-primary">Reload Profile</button>
+        </div>
+     </uib-tab>
+
+  </uib-tabset>
+  </div>
