@@ -4,7 +4,7 @@ Git     [http://git-scm.com/] (http://git-scm.com/).
 node.js tools [http://nodejs.org/] (http://nodejs.org/).
 
 ### Clone project seed
-Clone seed project repository using [git][git]:
+Clone seed project repository using Git:
 ```
 git clone https://github.com/KukuhUtama/RetrieveTweet.git
 cd \Second
@@ -29,6 +29,6 @@ Open cmd, go to \Second dir
 ### Run the Application
 
 ```
-npm start
+    - npm start
 ```
 Now browse to the app at `http://localhost:8000/app/index.html`.
